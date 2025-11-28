@@ -9,7 +9,6 @@ newvenv/
 
 # Data
 data/
-*.csv
 *.xlsx
 
 # Models
