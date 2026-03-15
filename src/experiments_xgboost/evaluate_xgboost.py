@@ -23,10 +23,10 @@ y = df["target"]
 # 2. 모델 로드
 # --------------------------------------------------------
 
-baseline_model = joblib.load("models/baseline.pkl")
-finetuned_model = joblib.load("models/finetuned.pkl")
+baseline_model = joblib.load("models/baseline_xgboost.pkl")
+finetuned_model = joblib.load("models/finetuned_xgboost.pkl")
 
-print("📌 baseline.pkl & finetuned.pkl 로딩 완료\n")
+print("📌 baseline_xgboost.pkl & finetuned_xgboost.pkl 로딩 완료\n")
 
 # --------------------------------------------------------
 # 3. 각 모델로 예측 수행
@@ -70,7 +70,7 @@ evaluate_model("Finetuned Model", y, finetune_pred)
 # --------------------------------------------------------
 
 print("===============================================")
-print("          Baseline vs Finetuned Summary        ")
+print("     XGBoost Baseline vs Finetuned Summary     ")
 print("===============================================")
 
 def score_summary(y_true, pred):
