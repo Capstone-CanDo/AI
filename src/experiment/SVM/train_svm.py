@@ -49,7 +49,8 @@ model = Pipeline([
     ("svm", SVC(
         kernel="rbf",
         C=1.0,
-        gamma="scale"
+        gamma="scale",
+        probability=True
     ))
 ])
 
