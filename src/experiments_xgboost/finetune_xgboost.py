@@ -1,4 +1,5 @@
 import pandas as pd
+from xgboost import XGBClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
@@ -50,13 +51,15 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 # ------------------------------------------------------------
-# 6. RandomForest 모델 학습
+# 6. XGBoost 모델 학습
 # ------------------------------------------------------------
-model = RandomForestClassifier(
+model = XGBClassifier(
     n_estimators=200,
-    max_depth=None,
+    max_depth=6,
+    learning_rate=0.1,
     n_jobs=-1,
-    random_state=42
+    random_state=42,
+    eval_metric="logloss"
 )
 
 model.fit(X_train, y_train)
@@ -84,7 +87,7 @@ for name, score in sorted(zip(feature_names, importances), key=lambda x: x[1], r
 # 9. 모델 저장
 # ------------------------------------------------------------
 os.makedirs("models", exist_ok=True)
-save_path = "models/finetuned.pkl"
+save_path = "models/finetuned_xgboost.pkl"
 
 joblib.dump(model, save_path)
-print(f"\n🎉 모델 저장 완료 → {save_path}")
+print(f"\n🎉 XGBoost 모델 저장 완료 → {save_path}")
