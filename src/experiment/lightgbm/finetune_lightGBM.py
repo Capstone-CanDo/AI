@@ -8,8 +8,8 @@ import joblib
 # ------------------------------------------------------------
 # 1. baseline 데이터 로드
 # ------------------------------------------------------------
-df_base_normal = pd.read_csv("data/baseline/normal_2.csv", index_col=0)
-df_base_phish  = pd.read_csv("data/baseline/phishing_2.csv", index_col=0)
+df_base_normal = pd.read_csv("data/processed/baseline/normal_2.csv", index_col=0)
+df_base_phish  = pd.read_csv("data/processed/baseline/phishing_2.csv", index_col=0)
 
 df_base_normal["target"] = 0
 df_base_phish["target"] = 1
@@ -17,8 +17,8 @@ df_base_phish["target"] = 1
 # ------------------------------------------------------------
 # 2. 파인튜닝 데이터 로드
 # ------------------------------------------------------------
-df_ft_normal = pd.read_csv("data/fine-tuning/finetuning_data_normal.csv", index_col=0)
-df_ft_phish  = pd.read_csv("data/fine-tuning/finetuning_data_phishing.csv", index_col=0)
+df_ft_normal = pd.read_csv("data/processed/fine-tuning/finetuning_data_normal.csv", index_col=0)
+df_ft_phish  = pd.read_csv("data/processed/fine-tuning/finetuning_data_phishing.csv", index_col=0)
 
 df_ft_normal["target"] = 0
 df_ft_phish["target"] = 1
